@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quản Lý - Hệ Thống Cung Cấp Dữ Liệu Môi Trường</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand ms-2" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            style="fill: rgba(0, 0, 0, 1); transform: ; msfilter: "
+          >
+            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+          </svg>
+          <img
+            src="./images/logo.svg"
+            width="40"
+            height="40"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          Hệ thống cung cấp dữ liệu Môi Trường
+        </a>
+
+        <a class="navbar-brand account" href="#" id="user-logined">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"
+            width="40"
+            height="40"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          KienTrung
+        </a>
+      </nav>
+
+      <!--USER-->
+      <section class="main-content" id="main-user">
+        <div class="row">
+          <div class="col-lg-2 p-0" style="border-right: 2px solid #ccc">
+            <div class="list-group rounded-0">
+              <a
+                href="#"
+                class="border-0 list-group-item list-group-item-action ps-4"
+                ><i class="bx bxs-user-rectangle me-3"></i>Khách hàng</a
+              >
+              <a
+                href="#"
+                class="border-0 list-group-item list-group-item-action ps-4 active"
+                ><i class="bx bxs-user me-3"></i>Người dùng</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-10">
+            <div class="title-page mt-3">
+              <div class="d-flex align-items-center">
+                <img
+                  src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"
+                  alt="user"
+                  width="40"
+                  height="40"
+                />
+                <p class="h5 ms-2">Người dùng</p>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 d-flex justify-content-between mt-3">
+                  <input
+                    class="input-elevated w-50"
+                    id="search-input"
+                    type="text"
+                    placeholder="Tìm kiếm theo tên hoặc số điện thoại"
+                  />
+
+                  <button
+                    type="button"
+                    class="button-add"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addModal"
+                  >
+                    <span class="button__text">Thêm mới</span>
+                    <span class="button__icon"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke="currentColor"
+                        height="24"
+                        fill="none"
+                        class="svg"
+                      >
+                        <line y2="19" y1="5" x2="12" x1="12"></line>
+                        <line y2="12" y1="12" x2="19" x1="5"></line></svg
+                    ></span>
+                  </button>
+
+                  <!--MODAL ADD-->
+                  <div class="modal" id="addModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Thêm mới người dùng</h4>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                          ></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                          <form class="card-form">
+                            <div class="input">
+                              <input
+                                type="text"
+                                class="input-field"
+                                id="nameUser"
+                                name="name"
+                                required
+                              />
+                              <label class="input-label">Tên hiển thị</label>
+                            </div>
+
+                            <div class="input">
+                              <input
+                                type="text"
+                                class="input-field"
+                                id="usernameUser"
+                                name="username"
+                                required
+                              />
+                              <label class="input-label">Tên đăng nhập</label>
+                            </div>
+
+                            <div class="input">
+                              <input
+                                type="email"
+                                class="input-field"
+                                id="email"
+                                name="email"
+                                required
+                              />
+                              <label class="input-label">Email</label>
+                            </div>
+
+                            <div class="input">
+                              <input
+                                type="text"
+                                class="input-field"
+                                id="mobile"
+                                name="mobile"
+                                required
+                              />
+                              <label class="input-label">Điện thoại</label>
+                            </div>
+
+                            <div class="input">
+                              <input
+                                type="password"
+                                class="input-field"
+                                id="pwd"
+                                name="pwd"
+                                required
+                              />
+                              <label class="input-label">Mật khẩu</label>
+                            </div>
+
+                            <div class="input">
+                              <input
+                                type="password"
+                                class="input-field"
+                                id="confirm-pwd"
+                                name="confirm-pwd"
+                                required
+                              />
+                              <label class="input-label"
+                                >Xác nhận mật khẩu</label
+                              >
+                            </div>
+
+                            <label class="pt-3">Quyền</label>
+                            <div class="input pt-0">
+                              <select
+                                name="roles"
+                                id="cboQuyen"
+                                multiple
+                              ></select>
+                            </div>
+                          </form>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-danger"
+                            data-bs-dismiss="modal"
+                          >
+                            Hủy
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="addUserBtn"
+                            onclick="addUser()"
+                          >
+                            Thêm mới
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--MODAL EDIT-->
+                  <div class="modal" id="modalEdit">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Cập nhật người dùng</h4>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                          ></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                          <form id="form-edit">
+                            <div class="input">
+                              <input
+                                type="text"
+                                class="input-field"
+                                id="edit-name"
+                                name="name"
+                                required
+                              />
+                              <label class="input-label">Tên hiển thị</label>
+                            </div>
+
+                            <div class="input">
+                              <label for="">Tên đăng nhập</label>
+                              <input
+                                type="text"
+                                class="input-field disabled"
+                                id="edit-username"
+                                name="username"
+                                disabled
+                              />
+                              <!--                                                    <label class="input-label">Tên đăng nhập</label>-->
+                            </div>
+
+                            <div class="input">
+                              <label for="">Email</label>
+                              <input
+                                type="email"
+                                class="input-field disabled"
+                                id="edit-email"
+                                name="email"
+                                disabled
+                              />
+                              <!--                                                    <label class="input-label">Email</label>-->
+                            </div>
+
+                            <div class="input">
+                              <input
+                                type="text"
+                                class="input-field"
+                                id="edit-mobile"
+                                name="mobile"
+                              />
+                              <label class="input-label">Điện thoại</label>
+                            </div>
+
+                            <label class="pt-3">Quyền</label>
+                            <div class="mb-3">
+                              <select id="edit-cboQuyen" multiple></select>
+                            </div>
+                          </form>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-danger"
+                            data-bs-dismiss="modal"
+                          >
+                            Hủy
+                          </button>
+                          <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="update-btn"
+                            onclick="updateUser()"
+                            data-bs-dismiss="modal"
+                          >
+                            Cập nhật
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row py-4 list-filter mx-0">
+                  <div class="col-lg-2">
+                    <form>
+                      <select class="form-select" id="filter-status">
+                        <option>--Trạng thái--</option>
+                        <option value="">Toàn bộ</option>
+                        <option value="1">Hoạt động</option>
+                        <option value="0">Vô hiệu</option>
+                      </select>
+                    </form>
+                  </div>
+                  <div class="col-lg-2">
+                    <form>
+                      <select class="form-select" id="filter-role">
+                        <option value="">--Quyền--</option>
+                      </select>
+                    </form>
+                  </div>
+                  <div class="col-lg-2">
+                    <input
+                      id="startDate"
+                      class="form-control"
+                      type="date"
+                      placeholder="Ngày bắt đầu"
+                    />
+                  </div>
+                  <div class="col-lg-2">
+                    <input
+                      id="endDate"
+                      class="form-control"
+                      type="date"
+                      placeholder="Ngày kết thúc"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-12 mt-3">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Tên hiển thị</th>
+                        <th>Tên đăng nhập</th>
+                        <th>Số điện thoại</th>
+                        <th>Trạng thái</th>
+                        <th>Quyền</th>
+                        <th>Ngày tạo</th>
+                        <th>Hành động</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table"></tbody>
+                  </table>
+
+                  <select
+                    onchange="changeItemsPerPage(this.value)"
+                    id="limit-item"
+                  >
+                    <option value="5" selected>5 / trang</option>
+                    <option value="10">10/ trang</option>
+                    <option value="25">25 / trang</option>
+                    <option value="50">50 / trang</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--END USER-->
+
+      <!--POPUP DELETE-->
+
+      <div class="modal" id="deleteModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header delete">
+              <h4 class="modal-title">Bạn có chắc chắn không?</h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="body-delete">Modal body..</div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Không
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="delete"
+                value=""
+                data-bs-dismiss="modal"
+              >
+                Áp dụng
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END POPUP DELETE-->
+
+        <!--CARD USER-->
+      <div class="card position-absolute" id="card" style="width:300px; top: 46px; right: 20px; z-index: 999; box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.5); display: none">
+        <!--END CARD USER-->
+
+      </div>
+
+      <!--PROFILE-->
+      <section class="main-content" id="main-profile" style="display: none">
+        <div class="row">
+          <div class="col-lg-2 p-0" style="border-right: 2px solid #ccc">
+            <div class="avatar mt-5" id="avt-profile">
+              <!--Conten-->
+            </div>
+            <div class="image-text text-center pt-2">
+              <p class="text-capitalize">Dung lượng tối đa là 1MB<br>Chỉ hỗ trợ PNG, JPEG, JPG</p>
+            </div>
+            <h5 class="ms-4">Tài khoản của tôi</h5>
+            <div class="list-group rounded-0">
+              <a
+                      href="#"
+                      class="border-0 list-group-item list-group-item-action ps-4 active"
+              ><i class='bx bxs-food-menu me-3' ></i>Hồ sơ</a
+              >
+              <a
+                      href="#"
+                      class="border-0 list-group-item list-group-item-action ps-4 "
+              ><i class='bx bxs-edit-alt me-3' ></i>Đổi mật khẩu</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-10">
+            <div class="title-page mt-3">
+              <div class="d-flex align-items-center">
+                <p class="h5 ms-2">Thông tin cá nhân</p>
+              </div>
+              <div class="card" style="width:600px">
+                <div class="card-header d-flex">
+                  <div class="img-us">
+                    <img src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" alt="" width="100" height="100">
+                  </div>
+                  <div class="content-image">
+                    <h4>Hồ sơ</h4>
+                    <p>Thông tin cơ bản như tên và ảnh của bạn</p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form id="form-profile">
+                  <!-- Content hiển thị ở đây-->
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--END PROFILE-->
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
